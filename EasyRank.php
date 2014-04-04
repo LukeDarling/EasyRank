@@ -230,5 +230,9 @@ return true;
 return false;
 }
 }
+public function getRank($name) {
+$path = "plugins/EasyRank/";
+return file_get_contents($path . "players/" . strtolower($name) . ".ini");
+}
 }
 ?>
