@@ -231,5 +231,13 @@ public function getRank($name) {
   $path = "plugins/EasyRank/";
   return file_get_contents($path . "players/" . strtolower($name) . ".ini");
 }
+public function getPerm($name,$cmd) {
+  $path = "plugins/EasyRank/";
+  if(file_get_contents($path . "players/" . strtolower($name) . ".ini") >= file_get_contents($path . "cmds/" . strtolower($cmd) . ".ini")) {
+    return true;
+  } else {
+    return false;
+  }
+}
 }
 ?>
