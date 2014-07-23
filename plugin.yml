@@ -5,6 +5,10 @@ api: [1.1.0]
 author: LDX
 load: POSTWORLD
 commands:
+  easyrank:
+    permission: easyrank.command.easyrank
+    description: "Shows EasyRank's version."
+    usage: "/easyrank"
   setrank:
     permission: easyrank.command.setrank
     description: "Sets a player's rank."
@@ -13,10 +17,6 @@ commands:
     permission: easyrank.command.setperm
     description: "Sets a permission's rank."
     usage: "/setperm <permission> <#>"
-  easyrank:
-    permission: easyrank.command.easyrank
-    description: "Shows EasyRank's version."
-    usage: "/easyrank"
 permissions:
   easyrank:
     default: op
@@ -26,12 +26,21 @@ permissions:
         default: op
         description: "Allows access to all EasyRank commands."
         children:
+          easyrank.command.easyrank:
+            default: true
+            description: "Allows access to the EasyRank version command."
           easyrank.command.setrank:
             default: op
             description: "Allows access to the setrank command."
           easyrank.command.setperm:
             default: op
             description: "Allows access to the setperm command."
+      easyrank.version:
+        default: true
+        description: "Allows access to viewing EasyRank's version."
       easyrank.setrank:
         default: op
-        
+        description: "Allows access to changing player's ranks."
+      easyrank.setperm:
+        default: op
+        description: "Allows access to changing permission's ranks."
