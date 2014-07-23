@@ -14,9 +14,9 @@ commands:
     description: "Sets a player's rank."
     usage: "/setrank <player> <#>"
   setperm:
-    permission: easyrank.command.setperm
-    description: "Sets a permission's rank."
-    usage: "/setperm <permission> <#>"
+    permission: easyrank.command.setcmd
+    description: "Sets a command's rank."
+    usage: "/setcmd <permission> <#>"
 permissions:
   easyrank:
     default: op
@@ -32,15 +32,15 @@ permissions:
           easyrank.command.setrank:
             default: op
             description: "Allows access to the setrank command."
-          easyrank.command.setperm:
+          easyrank.command.setcmd:
             default: op
-            description: "Allows access to the setperm command."
+            description: "Allows access to the setcmd command."
       easyrank.version:
         default: true
         description: "Allows access to viewing EasyRank's version."
       easyrank.setrank:
         default: op
         description: "Allows access to changing player's ranks."
-      easyrank.setperm:
+      easyrank.setcmd:
         default: op
-        description: "Allows access to changing permission's ranks."
+        description: "Allows access to changing command's ranks."
