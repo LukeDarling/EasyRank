@@ -1,1 +1,26 @@
-null
+name: EasyRank
+main: LDX\EasyRank\Main
+version: 3.0
+api: [1.1.0]
+author: LDX
+load: POSTWORLD
+commands:
+  setrank:
+    permission: easyrank.command.setrank
+    description: "Sets a player's rank."
+    usage: "/setrank <player> <#>"
+permissions:
+  easyrank:
+    default: op
+    description: "Allows access to all EasyRank features."
+    children:
+      easyrank.command:
+        default: op
+        description: "Allows access to all EasyRank commands."
+        children:
+          easyrank.command.setrank:
+            default: op
+            description: "Allows access to the setrank command."
+          easyrank.command.setperm:
+            default: op
+            description: "Allows access to the setperm command."
