@@ -16,10 +16,29 @@ class Main extends PluginBase {
       @mkdir($this->getDataFolder());
       file_put_contents($this->getDataFolder() . "config.yml",$this->getResource("config.yml"));
     }
+    $this->getServer()->getPluginManager()->registerEvents($this,$this);
     $this->getLogger()->info(TextFormat::YELLOW . "Enabling EasyRank...");
   }
   public function onCommand(CommandSender $issuer,Command $cmd,$label,array $args) {
     
+  }
+  /**
+  * @param CommandEvent $event
+  *
+  * @priority HIGHEST
+  * @ignoreCancelled true
+  */
+  public function playerCommand(CommandEvent $event) {
+    $p = $event->getPlayer();
+    $m = $event->getMessage();
+    $p->sendMessage($m); // DEBUG
+    if(substr($m,0) == "/") {
+      $cmd = trim($m,"/");
+      $p->sendMessage($cmd); // DEBUG
+      if(!$this->hasPermission($p->getName(),$cmd)) {
+        $event->setCancelled();
+      }
+    }
   }
   public function onDisable() {
     $this->getLogger()->info(TextFormat::YELLOW . "Disabling EasyRank...");
