@@ -12,10 +12,7 @@ class Main extends PluginBase {
     $this->getLogger()->info(TextFormat::YELLOW . "Loading EasyRank v" . $this->getDescription()->getVersion() . " by LDX...");
   }
   public function onEnable() {
-    if(!file_exists($this->getDataFolder() . "config.yml")) {
-      @mkdir($this->getDataFolder());
-      file_put_contents($this->getDataFolder() . "config.yml",$this->getResource("config.yml"));
-    }
+    $this->saveDefaultConfig();
     $this->getServer()->getPluginManager()->registerEvents($this,$this);
     $this->getLogger()->info(TextFormat::YELLOW . "Enabling EasyRank...");
   }
