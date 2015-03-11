@@ -4,6 +4,7 @@ version: 3.0
 api: [1.1.0]
 author: LDX
 load: POSTWORLD
+website:  https://github.com/LDX-MCPE/EasyRank
 commands:
   easyrank:
     permission: easyrank.command.easyrank
